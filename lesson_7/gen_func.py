@@ -18,9 +18,9 @@
 #
 # for n in my_range(10,20):
 #     print(n)
-
-#Task 3
-
+#
+# #Task 3
+#
 # def simple_number(stop):
 #     prime = { }
 #     i = 2
@@ -34,10 +34,10 @@
 #
 # for n in simple_number(1,10):
 #     print(n)
-
-
+#
+#
 # Task 4
-
+#
 # def cubes(limit):
 #     numbs = []
 #     start = 2
@@ -49,9 +49,9 @@
 #
 # for n in cubes(10):
 #     print(n)
-
+#
 # Task 5
-
+#
 # def my_fibonacci(stop):
 #     a = 1
 #     b = 1
@@ -64,7 +64,7 @@
 #
 # for n in fibonacci(10):
 #     print(n)
-
+#
 # Task 6
 # from datetime import datetime, timedelta
 #
@@ -80,6 +80,18 @@
 # for date in date_range(start_date, end_date):
 #     print(date.strftime("%d.%m.%Y"))
 
+
+# def string_to_word(text):
+#     new_text = list(text.lower().split())
+#     return new_text
+# def my_func(word):
+#     if 'a'in word and 'b' in word:
+#         return len(word)
+#     else:
+#         return 0
+# n = input('Enter sentense:')
+# words = string_to_word(n)
+# print(max(words,key = my_func))
 
 
 
