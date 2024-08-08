@@ -231,75 +231,75 @@
 #
 # cash_processor = Cash()
 # cash_processor.payment(cart)
-from abc import ABC, abstractmethod
-
-
-class Product:
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
-
-    def __str__(self):
-        return f'{self.name} costs {self.price} UAH'
-
-
-class Cart:
-    def __init__(self):
-        self.products = []
-        self.quantities = []
-
-    def add_product(self, product, quantity=1):
-        self.products.append(product)
-        self.quantities.append(quantity)
-
-    def __str__(self):
-        return '\n'.join([f'{product} x{quantity}' for product, quantity in zip(self.products, self.quantities)])
-
-
-class PaymentProcessor(ABC):
-    @abstractmethod
-    def pay(self, amount):
-        pass
-
-
-class DebitCardProcessor(PaymentProcessor):
-    def pay(self, amount):
-        print(f'Paying {amount} using Debit Card')
-
-
-class CreditCardProcessor(PaymentProcessor):
-    def pay(self, amount):
-        print(f'Paying {amount} using Credit Card')
-
-
-class PayPalProcessor(PaymentProcessor):
-    def pay(self, amount):
-        print(f'Paying {amount} using PayPal')
-
-
-def payment(cart, processor: PaymentProcessor):
-    total = sum(product.price * quantity for product, quantity in zip(cart.products, cart.quantities))
-    processor.pay(total)
-
-
-pr_1 = Product('bread', 10)
-pr_2 = Product('milk', 20)
-pr_3 = Product('meat', 100)
-
-cart = Cart()
-cart.add_product(pr_1)
-cart.add_product(pr_2, 2)
-cart.add_product(pr_3)
-
-print(cart)
-
-
-payment_type = input('Enter payment type: ')
-if payment_type == 'debit':
-    processor = DebitCardProcessor()
-elif payment_type == 'credit':
-    processor = CreditCardProcessor()
-elif payment_type == 'paypal':
-    processor = PayPalProcessor()
-
-payment(cart, processor)
+# from abc import ABC, abstractmethod
+#
+#
+# class Product:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+#
+#     def __str__(self):
+#         return f'{self.name} costs {self.price} UAH'
+#
+#
+# class Cart:
+#     def __init__(self):
+#         self.products = []
+#         self.quantities = []
+#
+#     def add_product(self, product, quantity=1):
+#         self.products.append(product)
+#         self.quantities.append(quantity)
+#
+#     def __str__(self):
+#         return '\n'.join([f'{product} x{quantity}' for product, quantity in zip(self.products, self.quantities)])
+#
+#
+# class PaymentProcessor(ABC):
+#     @abstractmethod
+#     def pay(self, amount):
+#         pass
+#
+#
+# class DebitCardProcessor(PaymentProcessor):
+#     def pay(self, amount):
+#         print(f'Paying {amount} using Debit Card')
+#
+#
+# class CreditCardProcessor(PaymentProcessor):
+#     def pay(self, amount):
+#         print(f'Paying {amount} using Credit Card')
+#
+#
+# class PayPalProcessor(PaymentProcessor):
+#     def pay(self, amount):
+#         print(f'Paying {amount} using PayPal')
+#
+#
+# def payment(cart, processor: PaymentProcessor):
+#     total = sum(product.price * quantity for product, quantity in zip(cart.products, cart.quantities))
+#     processor.pay(total)
+#
+#
+# pr_1 = Product('bread', 10)
+# pr_2 = Product('milk', 20)
+# pr_3 = Product('meat', 100)
+#
+# cart = Cart()
+# cart.add_product(pr_1)
+# cart.add_product(pr_2, 2)
+# cart.add_product(pr_3)
+#
+# print(cart)
+#
+#
+# payment_type = input('Enter payment type: ')
+# if payment_type == 'debit':
+#     processor = DebitCardProcessor()
+# elif payment_type == 'credit':
+#     processor = CreditCardProcessor()
+# elif payment_type == 'paypal':
+#     processor = PayPalProcessor()
+#
+# payment(cart, processor)
